@@ -1,0 +1,143 @@
+/* Custom CSS for a deep-sea theme with a surface threat */
+        :root {
+            --sea-blue-dark: #000a12; /* Deeper black-blue for maximum depth */
+            --sea-blue-mid: #143542; /* Deep ocean blue */
+            --flare-orange: #ff6600; /* More reddish-orange for realism */
+            --whale-color: #457b9d; /* Muted blue for the whale */
+            --whale-color-dark: #3a6b8c; /* Darker shade for whale details */
+            --text-light: #f1faee;
+            --ui-accent: #e63946; /* Emergency red */
+            --seabed-color: #2a1a1f; 
+            --sky-blue: #a8dadc; 
+            --caustics-light: rgba(255, 255, 255, 0.15); /* Subtle light color */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--sea-blue-dark);
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--text-light);
+            text-shadow: 0 0 15px rgba(69, 123, 157, 0.7);
+            margin-bottom: 10px;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px; /* Slightly wider */
+            height: 450px; /* Slightly taller */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 8px solid var(--sea-blue-mid);
+            background-color: var(--sea-blue-dark); /* Ensure canvas background matches */
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        #score-display {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 8px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            border: 3px solid var(--flare-orange);
+            text-shadow: 1px 1px 5px var(--flare-orange);
+        }
+
+        #message-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 30px 5px rgba(255, 153, 0, 1); 
+            transition: opacity 0.5s ease;
+            pointer-events: auto;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 10;
+        }
+
+        #message-box.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #final-score {
+            font-size: 3rem;
+            color: var(--flare-orange);
+            margin: 10px 0 25px 0;
+            text-shadow: 0 0 10px var(--flare-orange);
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: var(--ui-accent);
+            color: var(--text-light);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 6px 0 var(--sea-blue-mid);
+            transition: all 0.1s;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #ff5769;
+        }
+
+        button:active {
+            box-shadow: 0 2px 0 var(--sea-blue-mid);
+            transform: translateY(4px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 650px) {
+            #game-container {
+                height: 350px;
+            }
+            #score-display {
+                font-size: 1.4rem;
+                top: 10px;
+            }
+            #final-score {
+                font-size: 2.5rem;
+            }
+            #message-box {
+                padding: 25px;
+            }
+        }

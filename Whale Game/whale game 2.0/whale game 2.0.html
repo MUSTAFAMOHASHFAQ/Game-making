@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Defender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="whale game 2.0.css">
+</head>
+<body>
+
+    <h1>Whale Defender: Deep Dive</h1>
+
+    <div id="top-ui-controls">
+        <div id="total-score-container">
+            <!-- Coin Icon (SVG/Emoji) -->
+            <span class="coin-icon">💰</span> 
+            <div id="total-score-display">0</div>
+        </div>
+        <button id="shop-button">Shop</button>
+    </div>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-overlay">
+            <div id="health-display"></div>
+            <div id="score-display">Flares Dodged: 0</div>
+
+            <div id="message-box">
+                <!-- Content injected by JS --></div>
+        </div>
+    </div>
+    
+    <div id="shop-modal">
+        <h2>Deep Sea Upgrades</h2>
+        <p style="color: var(--flare-orange);">Spend your Total Points to enhance the whale's survival!</p>
+        <div id="shop-total-points-display" style="font-weight: bold; margin: 10px 0;"></div>
+        <div id="shop-content">
+            <!-- Items rendered here -->
+        </div>
+        <button id="close-shop-button" style="margin-top: 25px; background-color: var(--sea-blue-mid);">Continue Dive</button>
+        <button id="reset-points-button">Reset Points (Testing)</button>
+    </div>
+
+    <p style="margin-top: 15px;">**Controls:** Use Arrow Keys to move the whale!</p>
+    <p style="margin-top: 5px; font-size: 0.85rem; color: #aaa;">(The deeper you dive, the safer you are from the surface threats.)</p>
+    <script src="whale game 2.0.js"></script>
+</body>
+</html>

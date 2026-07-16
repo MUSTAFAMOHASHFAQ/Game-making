@@ -1,0 +1,136 @@
+/* Custom CSS for a deep-sea theme with a surface threat */
+:root {
+    --sea-blue-dark: #001219;
+    --sea-blue-mid: #1d3557;
+    --flare-orange: #ff9900;
+    --whale-color: #457b9d;
+    --text-light: #f1faee;
+    --ui-accent: #e63946;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--sea-blue-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--text-light);
+    text-shadow: 0 0 10px rgba(69, 123, 157, 0.5);
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 5px solid var(--sea-blue-mid);
+}
+
+canvas {
+    display: block;
+    /* Invert the gradient for a sense of light source from the top */
+    background: linear-gradient(to bottom, var(--sea-blue-mid) 0%, var(--sea-blue-dark) 100%);
+    width: 100%;
+    height: 100%;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#score-display {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#message-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 153, 0, 0.8); /* Glowing flare effect */
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+}
+
+#message-box.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#final-score {
+    font-size: 2.5rem;
+    color: var(--flare-orange);
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--ui-accent);
+    color: var(--text-light);
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--sea-blue-dark);
+    transition: all 0.1s;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #ff5769;
+}
+
+button:active {
+    box-shadow: 0 2px 0 var(--sea-blue-dark);
+    transform: translateY(2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #game-container {
+        height: 350px;
+    }
+    #score-display {
+        font-size: 1.2rem;
+    }
+    #final-score {
+        font-size: 2rem;
+    }
+    #message-box {
+        padding: 20px;
+    }
+}
